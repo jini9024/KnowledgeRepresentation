@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Recommendation System</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='Style.css')}}">
+</head>
+<body>
+
+<header>
+    <h1>Tune In - Music Recomendation System</h1>
+</header>
+<div class="nav-bar">
+    <nav>
+        <ul class="nav-tabs">
+			 <a href="http://127.0.0.1:5000/" class="w3-bar-item w3-button tablink">Back</a>
+        </ul>
+    </nav>
+</div>
+<div class="results-box">
+    <h2 class="results-title">Search Results</h2>
+    <ul class="results-list">
+        <!-- Replace the following items with dynamic content as needed -->
+        <!-- Example of dynamically generated content -->
+        {% if tracks %}
+        <ul class="w3-dark-grey w3-xlarge w3-padding-32">
+            {% for track in tracks %}
+                <li class="w3-padding-16">
+                    <strong >{{ track.label }}</strong>
+                </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <li> Oops! Looks like there are no songs to play! Try another genre! </li>
+        {% endif %}
+    </ul>
+</div>
+
+</body>

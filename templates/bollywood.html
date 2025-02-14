@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Recommendation System</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='Style.css')}}">
+</head>
+<body>
+
+<header>
+    <h1>Tune In - Music Recomendation System</h1>
+</header>
+<div class="nav-bar">
+    <nav>
+        <ul class="nav-tabs">
+			 <a href="http://127.0.0.1:5000/" class="w3-bar-item w3-button tablink">Back</a>
+        </ul>
+    </nav>
+</div>
+<div class="results-box">
+    <h2 class="results-title">Recomendation</h2>
+    <ul class="results-list">
+        <!-- Check if there are any tracks -->
+        {% if tracks %}
+            <ul class="w3-dark-grey w3-xlarge w3-padding-32">
+                {% for track in tracks %}
+                    <li class="w3-padding-16">
+                        <!-- Use CSS classes for styling -->
+                        <strong>
+                            <span class="song-artist">{{ track.label }}</span> 
+                            <span class="by-word">by</span> 
+                            <span class="song-artist">{{ track.artist }}</span>
+                        </strong>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <!-- Display this message if no tracks are found -->
+            <li>Oops! Looks like there are no songs to play! Try another mood!</li>
+        {% endif %}
+    </ul>
+</div>
+</body>
+</html>
+

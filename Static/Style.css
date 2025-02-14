@@ -1,0 +1,120 @@
+ body {
+            font-family: Arial, sans-serif;
+			background-image: url('/static/2.jpg');
+            background-size: cover; 
+            background-position: center; 
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+	    color : white;
+        }
+        header {
+            background-color: Black; 
+            color: white;
+            text-align: center;
+
+        }
+		.song-artist {
+			color: black; /* Blue color for song and artist */
+		}
+
+		.by-word {
+			color: #3498db; /* Black color for the word 'by' */
+		}
+
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+	    
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+	    color: black;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 15px 30px;
+            background-color: #24ab09;
+            color: white;
+	    font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+	    margin: 0 10px;
+        }
+        button:hover {
+            background-color: #006400;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    	select {
+            background-color: black;
+            color: white;
+            border: 1px solid #007BFF; 
+            border-radius: 5px;
+            padding: 5px; 
+        }   
+	nav {
+            margin: 0; /* Remove margin */
+        }
+        .nav-bar {
+            background-color: black; /* Dark background color for the tab strip */
+            padding: 5 px 0; /* Vertical padding */
+        }
+        .nav-tabs {
+            list-style: none; /* Remove bullet points */
+            padding: 0;
+            display: flex;
+            justify-content: left; /* Center the tabs */
+        }
+        .nav-tabs li {
+            margin: 0 15px; /* Space between tabs */
+        }
+        .nav-tabs a {
+            text-decoration: none; /* Remove underline */
+            color: white;
+            padding: 10px 20px;
+            background-color: black; /* Tab background */
+            border-radius: 5px;
+            transition: background-color 0.3s; /* Smooth hover effect */
+        }
+        .nav-tabs a:hover {
+            background-color: green; /* Darker blue on hover */
+        }
+	.results-box {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px;
+            background-color: #f9f9f9; /* Light background color */
+	    color: black;
+        }
+        .results-title {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        .results-list {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0; /* Remove default padding */
+        }
+        .results-list li {
+            padding: 8px 0; /* Space between items */
+        }

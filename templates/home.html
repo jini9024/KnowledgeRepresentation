@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Recommendation System</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='Style.css')}}">
+</head>
+<body>
+
+<header>
+    <h1>Tune In - Music Recomendation System</h1>
+</header>
+<div class="nav-bar">
+    <nav>
+        <ul class="nav-tabs">
+			<button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Search');"><i class="fa fa-search"></i>Home</button>
+			<button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Playlists');"><i class="fa fa-plane w3-margin-right"></i>Playlists</button>
+			<button class="w3-bar-item w3-button tablink" onclick="openLink(event, 'Mood');"><i class="fa fa-plane w3-margin-right"></i>Mood</button>
+        </ul>
+    </nav>
+</div>
+
+<div id="Search" class="w3-container w3-white w3-padding-16 myLink">
+<div class="container">
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <br>
+                    <h2>Discover Your Next Favorite Tune!</h2>
+                    <p>
+                        
+                        Welcome to Tune In! Our innovative Music Recommendation System!</p>
+			<p> A smart system that analyzes individual
+                        tastes and past habits to curate a selection just for you. </p>
+			<p>In an era with endless music choices, find the tracks that resonate with your unique taste.
+			</p>
+			<p>
+                        Simply choose your favorite genre or artist, and let us unveil a world of popular hits that match
+                        your vibe.
+                    	</p>
+                </div>
+            </div>
+        </div>
+    
+</div>
+<div class="container">
+        <form action="/search" method="post">
+            <label for="genre">What's your favourite Genre?</label>
+            <select name="genre" id="genre" required>
+                <option value="" disabled selected>Pick a Genre</option>
+                {% for genre in genres %}
+                    <option value="{{ genre }}">{{ genre }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+
+            <label for="artist">Who is your favourite Artist?</label>
+            <select name="artist" id="artist" required>
+                <option value="" disabled selected>Select an Artist</option>
+                {% for artist in artists %}
+                    <option value="{{ artist }}">{{ artist }}</option>
+                {% endfor %}
+            </select>
+            <p><button type="submit">Find My Tunes!</button></p>
+        </form>
+    </div>
+<br>
+<br>
+</div>
+<div id="Mood" class="w3-container w3-white w3-padding-16 myLink">
+<div class="container">
+        <!-- Form to select mood -->
+        <form action="/mood" method="post">
+            <label for="mood">What type of songs you wish to hear now?</label>
+            <select name="mood" id="mood" required>
+				<option value="" disabled selected>Select a Mood</option>
+                <option value="Chill">Chill</option>
+                <option value="Happy">Happy</option>
+                <option value="Sad">Sad</option>
+                <option value="Energetic">Energetic</option>
+                <option value="Dark">Dark</option>
+            </select>
+            <p><button type="submit">Find Songs</button></p>
+        </form>
+    </div>
+	<br>
+	<br>
+</div>	
+<div id="Playlists" class="w3-container w3-white w3-padding-16 myLink">
+    <div class="container">
+	<form>
+        <h2>Dive into the Rhythm of Your Favorites!</h2>
+        <p>Choose your go-to playlist below and let the tunes play!</p>
+				</form></div>
+    <div class="container">
+        <div class="button-container">
+            <form method="get" action="/playlists/hollywood">
+                <button type="submit" id="hollywood" class="w3-button w3-dark-grey">
+                    Hollywood
+                </button>
+            </form>
+            <form method="get" action="/playlists/bollywood">
+                <button type="submit" id="bollywood" class="w3-button w3-dark-grey">
+                    Bollywood
+                </button>
+            </form>
+            <br><br>
+            <form method="get" action="/playlists/mollywood">
+                <button type="submit" id="mollywood" class="w3-button w3-dark-grey">
+                    Mollywood
+                </button>
+            </form>
+            <form method="get" action="/playlists/korean">
+                <button type="submit" id="korean" class="w3-button w3-dark-grey">
+                    Korean
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+    <br><br>
+</div>
+
+	<br>
+	<br>
+<script>
+        // Tabs
+        function openLink(evt, linkName) {
+          var i, x, tablinks;
+          x = document.getElementsByClassName("myLink");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+          }
+          document.getElementById(linkName).style.display = "block";
+          evt.currentTarget.className += " w3-red";
+        }
+        
+        // Click on the first tablink on load
+        document.getElementsByClassName("tablink")[0].click();
+        </script>
+</body>
+</html>
